@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <link href="https://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+    <script src="https://nightly.datatables.net/js/jquery.dataTables.js"></script>
+
+    <meta charset=utf-8 />
+<!--
+Created using JS Bin
+http://live.datatables.net
+
+Copyright (c) 2022 by anonymous (http://live.datatables.net/tulimeja/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+    <title>DataTables - Employees</title>
+  
+<style id="jsbin-css">
+body {
+  font: 90%/1.45em "Helvetica Neue", HelveticaNeue, Verdana, Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-color: #fff;
+}
+
+tfoot {
+  display: table-header-group
+}
+</style>
+</head>
+  <body>
+    <div class="container">
+      <table id="example" class="display nowrap" width="100%">
+        <thead>
+          <tr>
+            <th>Emp Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Job</th>
+            <th>Joining date</th>
+            <th>Salary</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for item in objects %}
+          <tr>
+            <td>{{ item.employee_id }}</td>
+            <td>{{ item.first_name }}</td>
+            <td>{{ item.last_name }}</td>
+            <td>{{ item.job_id }}</td>
+            <td>{{ item.hire_date }}</td>
+            <td>{{ item.salary }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <a href="{% url 'forms' %}"> forms</a>
+<script>
+$(document).ready( function () {
+  var table = $('#example').DataTable();
+} );
+</script>
+</body>
+</html>
